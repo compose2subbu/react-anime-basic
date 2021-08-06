@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import Modal from './components/Modal/Modal';
+import Backdrop from './components/Backdrop/Backdrop';
+import List from './components/List/List';
+import classes from './App.module.css';
+import { useState } from 'react';
 
 function App() {
+
+  const [isModalClose, setIsModalClose] = useState(false);
+  //console.log(isModalClose);
+  const closeModalHandler = () => {
+    setIsModalClose((currentState) => !currentState);
+  }
+
+  const openModalHandler = () => {
+    setIsModalClose((currentState) => !currentState);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className={classes.App}>
+        <h1>React Animations</h1>
+        {isModalClose && <Modal closeModal={closeModalHandler} show={isModalClose}/>}
+        {isModalClose && <Backdrop closeModal={closeModalHandler}/>}
+        <button className={classes.modalButton} onClick={openModalHandler}>Open Modal</button>
+        <h3>Animating Lists</h3>
+        <List />
+      </div>
   );
 }
 

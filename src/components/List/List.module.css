@@ -1,0 +1,21 @@
+.List {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    width: 280px;
+}
+
+.listButton {
+    border: 1px solid #17521c;
+    font: inherit;
+    padding: 8px;
+    background-color: #17521c;
+    color: white;
+    cursor: pointer;
+  }
+
+.listButton:hover,
+.listButton:active {
+  background-color: #6aa387;
+}
+
